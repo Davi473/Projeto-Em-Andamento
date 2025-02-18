@@ -29,6 +29,7 @@ export default function Transacoes(props) {
           )
           }}
           keyExtractor={(item) => item.id.toString() }
+          nestedScrollEnabled={true}
       />
     </View>
   );

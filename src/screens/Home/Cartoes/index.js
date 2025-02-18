@@ -42,6 +42,7 @@ export default function Cartoes(props) {
             )
           }}
           keyExtractor={(item) => item.id.toString()}
+          nestedScrollEnabled={true}
         />
       </View>
   );
