@@ -1,6 +1,6 @@
 import { StyleSheet, ScrollView } from 'react-native';
 import Saudacao from './Saudacao';
-import Cartoes from './Cartoes';
+import Meses from './Meses';
 import Transacoes from './Transacoes';
 
 const cartaoUltimosMeses = [
@@ -22,7 +22,7 @@ export default function Home(props) {
       showsVerticalScrollIndicator={false}
     >
       <Saudacao nickName={"Davi"}></Saudacao>
-      <Cartoes cartaoUltimosMeses={cartaoUltimosMeses} navigation={props.navigation} />
+      <Meses cartaoUltimosMeses={cartaoUltimosMeses} navigation={props.navigation} />
       <Transacoes ultimaEntradasESaidas={ultimaEntradasESaidas} />
     </ScrollView>
   );

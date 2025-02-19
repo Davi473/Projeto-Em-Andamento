@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View, FlatList, TouchableOpacity } from 'react-native';
 
-export default function Cartoes(props) {
+export default function Meses(props) {
   return (
       <View style={styles.ultimosCartoes}>
         <Text>Resumo dos ultimos 5 meses</Text>
@@ -13,7 +13,8 @@ export default function Cartoes(props) {
             return (
             <TouchableOpacity
                 onPress={() => {
-                    props.navigation.navigate("Lancamento", { id: item.id })
+                    props.navigation.navigate("Lancamento", 
+                      { id: item.id, mes: item.mes, ano: item.ano });
                 }}
             >
               <View style={styles.containerCartao}>
