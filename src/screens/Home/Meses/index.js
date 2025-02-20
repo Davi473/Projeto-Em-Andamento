@@ -1,4 +1,5 @@
 import { StyleSheet, Text, View, FlatList, TouchableOpacity } from 'react-native';
+import Icon from "react-native-vector-icons/MaterialIcons"; 
 
 export default function Meses(props) {
   return (
@@ -13,7 +14,7 @@ export default function Meses(props) {
             return (
             <TouchableOpacity
                 onPress={() => {
-                    props.navigation.navigate("Lancamento", 
+                    props.navigation.navigate("Mes", 
                       { id: item.id, mes: item.mes, ano: item.ano });
                 }}
             >
@@ -25,14 +26,17 @@ export default function Meses(props) {
                             <Text style={styles.cardTitle}>
                                 {item.mes}
                             </Text>
+                            <Text style={styles.cardIcon}>
+                              <Icon name="calendar-today" size={24} color="black" /> 
+                            </Text>
                         </View>
                         <Text style={styles.cardText}>{item.ano}</Text>
                         <View style={styles.alinhasValores}>
                             <Text style={styles.cardText}>
-                                Entrada: R$ <Text>{item.valorEntrada.toFixed(2)}</Text>
+                                Entrada: R$ <Text>{item.valorEntrada.toFixed(2)}  </Text>
                             </Text>
                             <Text style={styles.cardText}>
-                                Saida: R$ <Text>{item.valorSaida.toFixed(2)}</Text>
+                                Saida: R$ <Text>{item.valorSaida.toFixed(2)} </Text>
                             </Text>
                         </View>
                     </View>

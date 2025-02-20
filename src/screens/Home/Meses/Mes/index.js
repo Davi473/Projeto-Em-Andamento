@@ -1,28 +1,33 @@
+import { useEffect, useState } from 'react';
 import { StyleSheet, Text, View} from 'react-native';
+import LancamentoCartaoCard from './Cartao';
+import LancamentoTypeCard from "./Type";
 
 export default function Mes({ route }) {
     const { id, mes, ano } = route.params;
+    const [lancamentosDoMes, setLancamentosDoMes] = useState();
+
+    useEffect(() => {
+
+    }, []);
+
     return (
         <View>
-            <Text>Entrada De {mes} / {ano}</Text>
             <View style={styles.container}>
                 <View style={styles.card}>
                     <View style={styles.cardBody}>
-                        <View style={styles.cardHeader}>
-                            <Text style={styles.cardTitle}>
-                                {lancamento.name}
-                            </Text>
-                            <Text style={styles.cardIcon}>{lancamento.icone}</Text>
+                        <View style={styles.cardHeaderTitle}>
+                            <Text>Entrada De {mes} / {ano}     </Text>
                         </View>
-                        <Text style={styles.cardText}>
-                            Valor: R$ <Text style={lancamento.receita ? styles.valorReceita : styles.valorDespesa}>{lancamento.valor}</Text>
-                        </Text>
-                        <Text style={styles.cardText}>
-                            { lancamento.receita ? "Entrada:" :" Vencimento:"} {formatar(lancamento.data)}
-                        </Text>
                     </View>
                 </View>
             </View>
+            {
+                lancamentosDoMes.map(lancamento => 
+                    lancamento.cartao ? <LancamentoCartaoCard lancamento={lancamento} /> 
+                        : <LancamentoTypeCard lancamento={lancamento} />
+                )
+            }
         </View>
     );
 }
@@ -45,6 +50,9 @@ const styles = StyleSheet.create({
     },
     cardBody: {
         marginBottom: 15,
+    },
+    cardHeaderTitle: {
+        alignItems: 'center',
     },
     cardHeader: {
         flexDirection: 'row',
